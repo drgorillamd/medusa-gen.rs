@@ -1,7 +1,7 @@
 # Medusa Template Generator
 
 This is a tool to generate a set of contracts for a Medusa testing campaign, following Wonderland usage.
-The following contracts are generated, according to this structure:
+The following contracts are generated, according to this structure (I know, we call the child "parent" for...reason):
 - fuzz/
   - FuzzTest.sol
   - handlers/
@@ -10,7 +10,7 @@ The following contracts are generated, according to this structure:
     - HandlerB.sol
     - HandlerC.sol
   - properties/
-    - ParentProperty.sol
+    - PropertyParent.sol
     - PropertyA.sol
     - PropertyB.sol
     - PropertyC.sol
