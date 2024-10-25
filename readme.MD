@@ -17,11 +17,11 @@ The following contracts are generated, according to this structure:
   - Setup.sol
 
 The inheritance tree is as follows, FuzzTest is the entry point:
-FuzzTest, inherit ParentProperty
-ParentProperty, inherit each properties contract
-PropertyA, PropertyB, PropertyC, etc inherit HandlerParent
-HandlerParent, inherit each handler contract
-HandlerA, HandlerB, HandlerC, etc inherit Setup
+- FuzzTest, inherit ParentProperty
+- ParentProperty, inherit each properties contract
+- PropertyA, PropertyB, PropertyC, etc inherit HandlerParent
+- HandlerParent, inherit each handler contract
+- HandlerA, HandlerB, HandlerC, etc inherit Setup
 
 ## Installation
 
