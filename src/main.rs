@@ -19,6 +19,7 @@ struct Args {
     nb_properties: u8,
 }
 
+/// The contract template,
 #[derive(Template, Debug)]
 #[template(path = "contract.sol", escape = "none")]
 struct Contract {
@@ -29,11 +30,13 @@ struct Contract {
     parents: String,
 }
 
+/// The type of contract to generate
 enum ContractType {
     Handler,
     Property,
 }
 
+/// Hold the contract type specific information
 impl ContractType {
     fn directory_name(&self) -> String {
         match self {
@@ -83,6 +86,7 @@ fn generate_family(args: &Args, contract_type: ContractType) -> Result<(), std::
         ContractType::Property => args.nb_properties,
     };
 
+    // Generate the parent contracts
     let parents: Vec<Contract> = (0..nb_parents)
         .map(|i| Contract {
             licence: "MIT".to_string(),
@@ -98,6 +102,7 @@ fn generate_family(args: &Args, contract_type: ContractType) -> Result<(), std::
         })
         .collect();
 
+    // Generate the child contract, which inherit from all the parents
     let child = Contract {
         licence: "MIT".to_string(),
         solc: args.solc.clone(),
@@ -110,6 +115,7 @@ fn generate_family(args: &Args, contract_type: ContractType) -> Result<(), std::
         .recursive(true)
         .create(contract_type.directory_name())?;
 
+    // create_new preventes overwriting existing files
     parents.iter().try_for_each(|p| -> std::io::Result<()> {
         let mut f = File::create_new(format!(
             "{}/{}.t.sol",
