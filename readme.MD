@@ -1,3 +1,7 @@
+# Warning
+This repo has been migrated to the Wonderland org and is not maintained here anymore.
+Head over to https://github.com/defi-wonderland/medusa-gen-rs for latest version.
+
 # Medusa Template Generator
 
 This is a tool to generate a set of contracts for a Medusa testing campaign, following Wonderland usage.
